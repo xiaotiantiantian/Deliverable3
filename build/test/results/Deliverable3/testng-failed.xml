@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Deliverable3]">
+  <test name="TestStory.LoginTest(failed)" junit="true">
+    <classes>
+      <class name="TestStory.LoginTest">
+        <methods>
+          <include name="LoginWithWordPressPageCorrectTest"/>
+          <include name="LoginWithWordPressPageWrongUserNameTest"/>
+          <include name="LoginWithWordPressPageWrongPasswordTest"/>
+        </methods>
+      </class> <!-- TestStory.LoginTest -->
+    </classes>
+  </test> <!-- TestStory.LoginTest(failed) -->
+</suite> <!-- Failed suite [Deliverable3] -->
