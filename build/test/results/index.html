@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Deliverable3">
-              <span class="suite-name border-passed">Deliverable3</span>
+              <span class="suite-name border-failed">Deliverable3</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -90,7 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Deliverable3" class="hide-methods failed suite-Deliverable3"> (hide)</a> <!-- hide-methods failed suite-Deliverable3 -->
+                      <a href="#" panel-name="suite-Deliverable3" class="show-methods failed suite-Deliverable3"> (show)</a> <!-- show-methods failed suite-Deliverable3 -->
+                    </span>
+                    <div class="method-list-content failed suite-Deliverable3">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Deliverable3" title="TestStory.CartTest" hash-for-method="AddItemThenCheckOutWithLoggedInStatusTest">AddItemThenCheckOutWithLoggedInStatusTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Deliverable3 -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,12 +115,12 @@
                     <div class="method-list-content passed suite-Deliverable3">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Deliverable3" title="TestStory.SearchTest" hash-for-method="SearchWithBadInputTest">SearchWithBadInputTest</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Deliverable3" title="TestStory.CartTest" hash-for-method="AddItemThenCheckOutWithoutLoggedInStatusTest">AddItemThenCheckOutWithoutLoggedInStatusTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Deliverable3" title="TestStory.SearchTest" hash-for-method="testTestSearch">testTestSearch</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Deliverable3" title="TestStory.CartTest" hash-for-method="AddItemThenRemoveAndCanNotCheckoutTest">AddItemThenRemoveAndCanNotCheckoutTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Deliverable3 -->
@@ -121,24 +135,88 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Deliverable3" class="panel Deliverable3">
-          <div class="suite-Deliverable3-class-passed">
+          <div class="suite-Deliverable3-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">TestStory.SearchTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">TestStory.CartTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="SearchWithBadInputTest">
-                  </a> <!-- SearchWithBadInputTest -->
-                  <span class="method-name">SearchWithBadInputTest</span>
+                  <a name="AddItemThenCheckOutWithLoggedInStatusTest">
+                  </a> <!-- AddItemThenCheckOutWithLoggedInStatusTest -->
+                  <span class="method-name">AddItemThenCheckOutWithLoggedInStatusTest</span>
+                  <div class="stack-trace">com.thoughtworks.selenium.SeleniumException: Element is not visible
+Build info: version: &apos;unknown&apos;, revision: &apos;3169782&apos;, time: &apos;2016-09-29 10:24:50 -0700&apos;
+System info: host: &apos;DESKTOP-8QR0K53&apos;, ip: &apos;10.0.0.147&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_102&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{rotatable=false, raisesAccessibilityExceptions=false, marionette=true, appBuildId=20160623154057, version=, platform=XP, proxy={}, command_id=1, specificationLevel=0, acceptSslCerts=false, browserVersion=47.0.1, platformVersion=10.0, XULappId={ec8030f7-c20a-464f-9b0e-13a3a9e97384}, browserName=Firefox, takesScreenshot=true, takesElementScreenshot=true, platformName=Windows_NT, device=desktop}]
+Session ID: 219c4e14-f8d3-43b8-94af-714c74657da4
+	at com.thoughtworks.selenium.webdriven.SeleneseCommand.apply(SeleneseCommand.java:45)
+	at com.thoughtworks.selenium.webdriven.Timer.run(Timer.java:41)
+	at com.thoughtworks.selenium.webdriven.WebDriverCommandProcessor.execute(WebDriverCommandProcessor.java:149)
+	at com.thoughtworks.selenium.webdriven.WebDriverCommandProcessor.doCommand(WebDriverCommandProcessor.java:74)
+	at com.thoughtworks.selenium.DefaultSelenium.type(DefaultSelenium.java:322)
+	at TestStory.CartTest.AddItemThenCheckOutWithLoggedInStatusTest(CartTest.java:66)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+Caused by: org.openqa.selenium.WebDriverException: Element is not visible
+Build info: version: &apos;unknown&apos;, revision: &apos;3169782&apos;, time: &apos;2016-09-29 10:24:50 -0700&apos;
+System info: host: &apos;DESKTOP-8QR0K53&apos;, ip: &apos;10.0.0.147&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_102&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{rotatable=false, raisesAccessibilityExceptions=false, marionette=true, appBuildId=20160623154057, version=, platform=XP, proxy={}, command_id=1, specificationLevel=0, acceptSslCerts=false, browserVersion=47.0.1, platformVersion=10.0, XULappId={ec8030f7-c20a-464f-9b0e-13a3a9e97384}, browserName=Firefox, takesScreenshot=true, takesElementScreenshot=true, platformName=Windows_NT, device=desktop}]
+Session ID: 219c4e14-f8d3-43b8-94af-714c74657da4
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:126)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:93)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:42)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:163)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:284)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:108)
+	at com.thoughtworks.selenium.webdriven.commands.Type.handleSeleneseCommand(Type.java:74)
+	at com.thoughtworks.selenium.webdriven.commands.Type.handleSeleneseCommand(Type.java:1)
+	at com.thoughtworks.selenium.webdriven.SeleneseCommand.apply(SeleneseCommand.java:39)
+	... 43 more
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Deliverable3-class-failed -->
+          <div class="suite-Deliverable3-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">TestStory.CartTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="AddItemThenCheckOutWithoutLoggedInStatusTest">
+                  </a> <!-- AddItemThenCheckOutWithoutLoggedInStatusTest -->
+                  <span class="method-name">AddItemThenCheckOutWithoutLoggedInStatusTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testTestSearch">
-                  </a> <!-- testTestSearch -->
-                  <span class="method-name">testTestSearch</span>
+                  <a name="AddItemThenRemoveAndCanNotCheckoutTest">
+                  </a> <!-- AddItemThenRemoveAndCanNotCheckoutTest -->
+                  <span class="method-name">AddItemThenRemoveAndCanNotCheckoutTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -152,11 +230,11 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Deliverable3&quot;&gt;
-  &lt;test name=&quot;TestStory.SearchTest&quot; junit=&quot;true&quot; preserve-order=&quot;false&quot;&gt;
+  &lt;test name=&quot;TestStory.CartTest&quot; junit=&quot;true&quot; preserve-order=&quot;false&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;TestStory.SearchTest&quot;/&gt;
+      &lt;class name=&quot;TestStory.CartTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- TestStory.SearchTest --&gt;
+  &lt;/test&gt; &lt;!-- TestStory.CartTest --&gt;
 &lt;/suite&gt; &lt;!-- Deliverable3 --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -168,7 +246,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">TestStory.SearchTest (1 class)</span>
+                <span class="test-name">TestStory.CartTest (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -194,20 +272,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testTestSearch')
-data.setCell(0, 2, 'TestStory.SearchTest')
-data.setCell(0, 3, 12559);
+data.setCell(0, 1, 'AddItemThenCheckOutWithLoggedInStatusTest')
+data.setCell(0, 2, 'TestStory.CartTest')
+data.setCell(0, 3, 33903);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'SearchWithBadInputTest')
-data.setCell(1, 2, 'TestStory.SearchTest')
-data.setCell(1, 3, 9604);
+data.setCell(1, 1, 'AddItemThenCheckOutWithoutLoggedInStatusTest')
+data.setCell(1, 2, 'TestStory.CartTest')
+data.setCell(1, 3, 20641);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'AddItemThenRemoveAndCanNotCheckoutTest')
+data.setCell(2, 2, 'TestStory.CartTest')
+data.setCell(2, 3, 13604);
 window.suiteTableData['Deliverable3']= { tableData: data, tableDiv: 'times-div-Deliverable3'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 22 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Deliverable3">
               </div> <!-- times-div-Deliverable3 -->
             </div> <!-- times-div -->
@@ -233,14 +315,20 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">TestStory.SearchTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">TestStory.CartTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">SearchWithBadInputTest</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">AddItemThenCheckOutWithLoggedInStatusTest</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">testTestSearch</span>
-                <span class="method-start">9604 ms</span>
+                <span class="method-name">AddItemThenRemoveAndCanNotCheckoutTest</span>
+                <span class="method-start">33991 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">AddItemThenCheckOutWithoutLoggedInStatusTest</span>
+                <span class="method-start">47595 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

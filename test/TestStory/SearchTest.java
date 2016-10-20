@@ -49,7 +49,7 @@ public class SearchTest extends BaseTest {
     @Test
     public void testTestSearch() throws Exception {
         selenium.open("/");
-        Thread.sleep(500);;
+        Thread.sleep(500);
         selenium.click("css=img[alt=\"home\"]");
         Thread.sleep(500);
         selenium.type("name=s", "iPhone");

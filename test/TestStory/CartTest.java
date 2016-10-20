@@ -45,22 +45,21 @@ public class CartTest extends BaseTest {
     public void AddItemThenCheckOutWithLoggedInStatusTest() throws Exception {
         //log in 
         selenium.open("/tools-qa/");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_pass", "zhangzhipeng");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_login", "zht11");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.click("id=wp-submit");
-        selenium.waitForPageToLoad("600000"); 
+        Thread.sleep(1500);
         selenium.open("/products-page/checkout/");
-        
-        selenium.waitForPageToLoad("3000000");
+        Thread.sleep(1500);
         selenium.open("/products-page/product-category/ipads/apple-ipad-6-32gb-white-3d/");
-        selenium.waitForPageToLoad("3000000");
+        Thread.sleep(1500);
         selenium.click("name=Buy");
-        selenium.waitForPageToLoad("3000000");
+        Thread.sleep(1500);
         selenium.open("/products-page/checkout/");
-        selenium.waitForPageToLoad("300000");
+        Thread.sleep(1500);
         selenium.click("css=a.step2 > span");
         selenium.type("id=wpsc_checkout_form_2", "Zhirun");
         selenium.type("id=wpsc_checkout_form_3", "Tian");
@@ -77,7 +76,7 @@ public class CartTest extends BaseTest {
         selenium.select("xpath=(//select[@id='wpsc_checkout_form_16_region'])[2]", "label=Pennsylvania");
         selenium.type("id=wpsc_checkout_form_17", "11000");
         selenium.click("css=span > input[name=\"submit\"]");
-        selenium.waitForPageToLoad("30000");
+        Thread.sleep(1500);
 //        selenium.click("css=a.step2 > span");
 //        selenium.waitForPageToLoad("200000");
 //        selenium.type("id=wpsc_checkout_form_11", "iuy");
@@ -101,15 +100,15 @@ public class CartTest extends BaseTest {
     public void AddItemThenCheckOutWithoutLoggedInStatusTest() throws Exception {
         //log in 
         selenium.open("/tools-qa/");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_pass", "zhangzhipeng");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_login", "zht11");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.click("id=wp-submit");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.open("/products-page/checkout/");
-        selenium.waitForPageToLoad("300000");
+        Thread.sleep(1500);
 //        selenium.click("css=a.step2 > span");
 //        selenium.waitForPageToLoad("200000");
 //        selenium.type("id=wpsc_checkout_form_11", "iuy");

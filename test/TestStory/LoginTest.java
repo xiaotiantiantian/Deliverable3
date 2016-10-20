@@ -47,13 +47,13 @@ public class LoginTest extends BaseTest {
     public void LoginWithWordPressPageCorrectTest() throws Exception {
         //log in 
         selenium.open("/tools-qa/");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_pass", "zhangzhipeng");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_login", "zht11");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.click("id=wp-submit");
-        selenium.waitForPageToLoad("160000");
+        Thread.sleep(1500);
         boolean q = selenium.isTextPresent("Howdy");
         assertTrue(q);
 
@@ -69,13 +69,13 @@ public class LoginTest extends BaseTest {
     public void LoginWithWordPressPageWrongPasswordTest() throws Exception {
         //log in 
         selenium.open("/tools-qa/");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_pass", "zhangzhieng");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_login", "zht11");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.click("id=wp-submit");
-        selenium.waitForPageToLoad("160000");
+        Thread.sleep(1500);
 
         boolean q = selenium.isTextPresent("ERROR: Invalid login credentials.");
         assertTrue(q);
@@ -93,12 +93,12 @@ public class LoginTest extends BaseTest {
     public void LoginWithWordPressPageWrongUserNameTest() throws Exception {
         //log in 
         selenium.open("/tools-qa/");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_pass", "zhangzhipeng");
-        selenium.waitForPageToLoad("60000");
+        Thread.sleep(1500);
         selenium.type("id=user_login", "zhwrong");
         selenium.waitForPageToLoad("60000");
-        selenium.click("id=wp-submit");
+        Thread.sleep(1500);
         selenium.waitForPageToLoad("160000");
         boolean q = selenium.isTextPresent("ERROR: Invalid login credentials.");
         assertTrue(q);
