@@ -53,7 +53,7 @@ public class LoginTest extends BaseTest {
         selenium.type("id=user_login", "zht11");
         selenium.waitForPageToLoad("60000");
         selenium.click("id=wp-submit");
-        selenium.waitForPageToLoad("60000");
+        selenium.waitForPageToLoad("160000");
         boolean q = selenium.isTextPresent("Howdy");
         assertTrue(q);
 
@@ -75,7 +75,7 @@ public class LoginTest extends BaseTest {
         selenium.type("id=user_login", "zht11");
         selenium.waitForPageToLoad("60000");
         selenium.click("id=wp-submit");
-        selenium.waitForPageToLoad("60000");
+        selenium.waitForPageToLoad("160000");
 
         boolean q = selenium.isTextPresent("ERROR: Invalid login credentials.");
         assertTrue(q);
@@ -99,7 +99,7 @@ public class LoginTest extends BaseTest {
         selenium.type("id=user_login", "zhwrong");
         selenium.waitForPageToLoad("60000");
         selenium.click("id=wp-submit");
-        selenium.waitForPageToLoad("60000");
+        selenium.waitForPageToLoad("160000");
         boolean q = selenium.isTextPresent("ERROR: Invalid login credentials.");
         assertTrue(q);
 

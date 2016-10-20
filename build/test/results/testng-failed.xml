@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Deliverable3]">
-  <test name="TestStory.LoginTest(failed)" junit="true">
+  <test name="TestStory.SearchTest(failed)" junit="true">
     <classes>
-      <class name="TestStory.LoginTest">
+      <class name="TestStory.SearchTest">
         <methods>
-          <include name="LoginWithWordPressPageCorrectTest"/>
-          <include name="LoginWithWordPressPageWrongUserNameTest"/>
-          <include name="LoginWithWordPressPageWrongPasswordTest"/>
+          <include name="SearchWithBadInputTest"/>
         </methods>
-      </class> <!-- TestStory.LoginTest -->
+      </class> <!-- TestStory.SearchTest -->
     </classes>
-  </test> <!-- TestStory.LoginTest(failed) -->
+  </test> <!-- TestStory.SearchTest(failed) -->
 </suite> <!-- Failed suite [Deliverable3] -->
