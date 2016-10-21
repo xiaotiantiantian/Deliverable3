@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Deliverable3]">
+  <test name="TestStory.CartTest(failed)" junit="true">
+    <classes>
+      <class name="TestStory.CartTest">
+        <methods>
+          <include name="AddItemThenCheckOutWithoutLoggedInStatusTest"/>
+          <include name="AddItemThenGoToCheckOutTest"/>
+        </methods>
+      </class> <!-- TestStory.CartTest -->
+    </classes>
+  </test> <!-- TestStory.CartTest(failed) -->
+</suite> <!-- Failed suite [Deliverable3] -->

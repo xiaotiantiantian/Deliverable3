@@ -46,13 +46,15 @@ public class SearchTest extends BaseTest {
         selenium = new WebDriverBackedSelenium(driver, baseUrl);
     }
 
-    /**
-     * Sceniro 1: Given one searchable key word, When input it and press enter
-     * login button user can login correctly
-     *
+     /**
+     * Sceniro 1: 
+     * Given a test of searching propose, 
+     * the input is "iPhone", which is a key word
+     * When input it and press enter
+     * Then the page would return all the answers
      */
     @Test
-    public void testTestSearch() throws Exception {
+    public void SearchKeyWordTest() throws Exception {
         driver.get(baseUrl + "/");
         driver.findElement(By.name("s")).sendKeys("iPhone");
         driver.findElement(By.name("s")).sendKeys(Keys.ENTER);
@@ -62,16 +64,18 @@ public class SearchTest extends BaseTest {
                assertTrue(item.getText().contains("iPhone")) ;
             }
         } catch (Error e) {
-//            verificationErrors.append(e.toString());
+                
         }
-//        boolean q = selenium.isTextPresent("iPhone");
-//        assertTrue(q);
+
     }
 
     /**
-     * Sceniro 2: Given a test of hacking propose, When input it and press enter
+     * Sceniro 2: 
+     * Given a test of hacking propose, 
      * the input is " ' and 1=1" The "%20%27%20and%201=1" is the HTML Url
-     * encoding of " ' and 1=1" Then the page would prompt "Not Acceptable".
+     * encoding of " ' and 1=1" 
+     * When input it and press enter
+     * Then the page would prompt "Not Acceptable".
      */
     @Test
     public void SearchWithBadInputTest() throws Exception {
@@ -82,11 +86,36 @@ public class SearchTest extends BaseTest {
             String titleAlert = driver.getTitle();
             assertEquals("Not Acceptable!", titleAlert);
         } catch (Error e) {
-//            verificationErrors.append(e.toString());
+        
         }
 
-//        assertTrue(true);
+
     }
+    
+    
+     /**
+     * Sceniro 3: 
+     * Given a test of searching propose, 
+     * the input is "qa", which is a key word
+     * When input it and press enter
+     * Then the page would return all the answers, which means, return no results
+     */
+    @Test
+    public void SearchNotExistTest() throws Exception {
+        driver.get(baseUrl + "/");
+        driver.findElement(By.name("s")).sendKeys("iPhone");
+        driver.findElement(By.name("s")).sendKeys(Keys.ENTER);
+        try {
+            List<WebElement> allChildElements = driver.findElements(By.cssSelector("h2.prodtitle"));
+            for (WebElement item : allChildElements) {
+               assertFalse(item.getText().contains("qa")) ;
+            }
+        } catch (Error e) {
+                
+        }
+
+    }
+    
 
     @After
     public void tearDown() throws Exception {

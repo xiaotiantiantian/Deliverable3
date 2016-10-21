@@ -21,8 +21,6 @@ import org.openqa.selenium.By;
  * As a customer I want to login with correct password and could not login with
  * uncorrect password and username
  *
- * can checkout correctly
- *
  *
  *
  *
@@ -41,36 +39,29 @@ public class LoginTest extends BaseTest {
     }
 
     /**
-     * Sceniro 1: Given correct username and password, When input it and press
-     * login button user can login correctly
+     * Sceniro 1: 
+     * Given correct username and password, 
+     * When input it and press
+     * login button
+     * Then user can login correctly
      *
      */
     @Test
     public void LoginWithWordPressPageCorrectTest() throws Exception {
         //log in 
-//        selenium.open("/tools-qa/");
-//        Thread.sleep(1500);
-//        selenium.type("id=user_pass", "zhangzhipeng");
-//        Thread.sleep(1500);
-//        selenium.type("id=user_login", "zht11");
-//        Thread.sleep(1500);
-//        selenium.click("id=wp-submit");
-//        Thread.sleep(1500);
         driver.get(baseUrl + "/tools-qa/");
         driver.findElement(By.id("user_login")).clear();
         driver.findElement(By.id("user_login")).sendKeys("zht11");
         driver.findElement(By.id("user_pass")).clear();
         driver.findElement(By.id("user_pass")).sendKeys("zhangzhipeng");
-        // ERROR: Caught exception [unknown command []]
+
         driver.findElement(By.id("wp-submit")).click();
-//String bodyText = driver.findElement(By.className(css=div.wp-menu-name)
-//        boolean q = driver.isTextPresent("Howdy");
+
         try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*css=div\\.wp-menu-name[\\s\\S]*$"));
         } catch (Error e) {
-//      verificationErrors.append(e.toString());
+
         }
-//        assertTrue(q);
 
     }
 
@@ -82,17 +73,17 @@ public class LoginTest extends BaseTest {
     @Test
     public void LoginWithWordPressPageWrongPasswordTest() throws Exception {
         driver.get(baseUrl + "/tools-qa/");
-    driver.findElement(By.id("user_login")).clear();
-    driver.findElement(By.id("user_login")).sendKeys("zht11");
-    driver.findElement(By.id("user_pass")).clear();
-    driver.findElement(By.id("user_pass")).sendKeys("zhangz99ng");
-    driver.findElement(By.id("wp-submit")).click();
-    // Warning: verifyTextPresent may require manual changes
-    try {
-      assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*id=login_error[\\s\\S]*$"));
-    } catch (Error e) {
-//      verificationErrors.append(e.toString());
-    }
+        driver.findElement(By.id("user_login")).clear();
+        driver.findElement(By.id("user_login")).sendKeys("zht11");
+        driver.findElement(By.id("user_pass")).clear();
+        driver.findElement(By.id("user_pass")).sendKeys("zhangz99ng");
+        driver.findElement(By.id("wp-submit")).click();
+
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*id=login_error[\\s\\S]*$"));
+        } catch (Error e) {
+
+        }
 
     }
 
@@ -105,20 +96,19 @@ public class LoginTest extends BaseTest {
     @Test
     public void LoginWithWordPressPageWrongUserNameTest() throws Exception {
         driver.get(baseUrl + "/tools-qa/");
-    driver.findElement(By.id("user_login")).clear();
-    driver.findElement(By.id("user_login")).sendKeys("zht1");
-    driver.findElement(By.id("user_pass")).clear();
-    driver.findElement(By.id("user_pass")).sendKeys("zhangzhipeng");
-    driver.findElement(By.id("wp-submit")).click();
-    // Warning: verifyTextPresent may require manual changes
-    try {
-      assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*id=login_error[\\s\\S]*$"));
-    } catch (Error e) {
-//      verificationErrors.append(e.toString());
-    }
-
+        driver.findElement(By.id("user_login")).clear();
+        driver.findElement(By.id("user_login")).sendKeys("zht1");
+        driver.findElement(By.id("user_pass")).clear();
+        driver.findElement(By.id("user_pass")).sendKeys("zhangzhipeng");
+        driver.findElement(By.id("wp-submit")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*id=login_error[\\s\\S]*$"));
+        } catch (Error e) {
+        }
 
     }
+
     @After
     public void tearDown() throws Exception {
         selenium.stop();

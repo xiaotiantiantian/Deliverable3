@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class BaseTest {
     public WebDriver driver;
-    private WebDriverWait wait;
+    public WebDriverWait wait;
     
     @Before
     public void setup() {

@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 //import org.openqa.selenium.support.ui.Select;
@@ -43,77 +44,90 @@ public class CartTest extends BaseTest {
     }
 
     /**
-     * Sceniro 1: Given logged in status When add something to the cart Then the
-     * user can check out correctly
+     * Sceniro 1: Given logged in status When add item to the cart Then the user
+     * can go to check out page correctly
      *
      */
     @Test
-    public void AddItemThenCheckOutWithLoggedInStatusTest() throws Exception {
+    public void AddItemThenGoToCheckOutTest() throws Exception {
         //log in 
         driver.get(baseUrl + "/tools-qa/");
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
-        
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
-        
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("user_login")));
         driver.findElement(By.id("user_login")).clear();
         driver.findElement(By.id("user_login")).sendKeys("zht11");
         driver.findElement(By.id("user_pass")).clear();
         driver.findElement(By.id("user_pass")).sendKeys("zhangzhipeng");
-        // ERROR: Caught exception [unknown command []]
         driver.findElement(By.id("wp-submit")).click();
-//        driver.get("/products-page/checkout/");
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("wp-admin-bar-my-account")));
+        driver.get(baseUrl + "/products-page/product-category/ipads/apple-ipad-6-32gb-white-3d/");
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.name("Buy")));
+        driver.findElement(By.name("Buy")).click();
 
-      driver.get(baseUrl + "/products-page/product-category/ipads/apple-ipad-6-32gb-white-3d/");
-    driver.findElement(By.name("Buy")).click();
-    driver.findElement(By.linkText("Go to Checkout")).click();
-    driver.findElement(By.cssSelector("a.step2 > span")).click();
-//
-//        driver.findElement(By.id("log")).clear();
-//        driver.findElement(By.id("log")).sendKeys("zht11");
-//        driver.findElement(By.id("pwd")).clear();
-//        driver.findElement(By.id("pwd")).sendKeys("zhangzhipeng");
-//        driver.findElement(By.cssSelector("a.step2 > span")).click();
-//        driver.findElement(By.id("login")).click();
-        driver.findElement(By.id("wpsc_checkout_form_8")).clear();
-        driver.findElement(By.id("wpsc_checkout_form_8")).sendKeys("15000");
-        driver.findElement(By.id("wpsc_checkout_form_18")).clear();
-        driver.findElement(By.id("wpsc_checkout_form_18")).sendKeys("1234567890");
-        driver.findElement(By.id("wpsc_checkout_form_4")).clear();
-        driver.findElement(By.id("wpsc_checkout_form_4")).sendKeys("upitt");
-        Select select = new Select(driver.findElement(By.id("wpsc_checkout_form_7")));
-        select.deselectAll();
-        select.selectByVisibleText("USA");
-
-        driver.findElement(By.cssSelector("span > input[name=\"submit\"]")).click();
-
-//        driver
-//        boolean q = selenium.isTextPresent("Fatal Error");
-        assertTrue(true);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Go to Checkout")));
+        driver.findElement(By.linkText("Go to Checkout")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#checkout_page_container .step2")));
+        String s = driver.findElement(By.cssSelector("BODY")).getText();
+        boolean q = s.contains("Checkout");
+        assertTrue(q);
 
     }
 
     /**
-     * Sceniro 1: Given logged in status When add something to the cart Then the
-     * user can check out correctly
+     * Sceniro 2: Given logged out status When add something to the cart Then
+     * the user can go to check out page correctly
      *
      */
     @Test
     public void AddItemThenCheckOutWithoutLoggedInStatusTest() throws Exception {
         //log in 
-
-        assertTrue(true);
+        driver.get(baseUrl + "/tools-qa/?action=logout");
+        driver.get(baseUrl + "/products-page/product-category/ipads/apple-ipad-6-32gb-white-3d/");
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.name("Buy")));
+        driver.findElement(By.name("Buy")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Go to Checkout")));
+        driver.findElement(By.linkText("Go to Checkout")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#checkout_page_container .step2")));
+        String s = driver.findElement(By.cssSelector("BODY")).getText();
+        boolean q = s.contains("Checkout");
+        assertTrue(q);
 
     }
 
     /**
-     * Sceniro 1: Given logged in status When add something to the cart Then the
-     * user can check out correctly
+     * Sceniro 3: Given logged in status with item in shopping cart in Checkout
+     * page When change the item number and press update then user can find the
+     * nubmer of item updated correctly
      *
      */
     @Test
-    public void AddItemThenRemoveAndCanNotCheckoutTest() throws Exception {
+    public void UpdateItemNumberWhenCheckOutTest() throws Exception {
+        driver.get(baseUrl + "/tools-qa/");
+        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
 
-        assertTrue(true);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("user_login")));
+        driver.findElement(By.id("user_login")).clear();
+        driver.findElement(By.id("user_login")).sendKeys("zht11");
+        driver.findElement(By.id("user_pass")).clear();
+        driver.findElement(By.id("user_pass")).sendKeys("zhangzhipeng");
+        driver.findElement(By.id("wp-submit")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("wp-admin-bar-my-account")));
+        driver.get(baseUrl + "/products-page/product-category/ipads/apple-ipad-6-32gb-white-3d/");
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.name("Buy")));
+        driver.findElement(By.name("Buy")).click();
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Go to Checkout")));
+        driver.findElement(By.linkText("Go to Checkout")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#checkout_page_container .step2")));
+
+        driver.findElement(By.name("quantity")).clear();
+        driver.findElement(By.name("quantity")).sendKeys("2");
+        driver.findElement(By.name("submit")).click();
+
+        String s = driver.findElement(By.cssSelector("BODY")).getText();
+        boolean q = s.contains("2");
+        assertTrue(q);
 
     }
 
